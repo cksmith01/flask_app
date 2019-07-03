@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ccc;
+    color: #333;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+p {
+    padding: 10px;
+    margin: 10px;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px 20px 20px 20px;
+    margin: 15px 15px 15px 15px;
+    border: 1px #999 solid;
+    border-radius: 5px;
+    box-shadow: 5px 5px 2px 1px rgba(5, 5, 5, .1);
+}
