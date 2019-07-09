@@ -1,11 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="container">
-        <h1>{{ title }}</h1>
-        <p class="important">
-            Welcome!
-        </p>
-        
+    <div class="nav">
+        <div class="logo">{{ title }}</div>
+        <div class="searchBar">
+            <form method="POST" action="/search">
+                <input type="text" name="q" value="{{searchTerm}}"/>
+                <button type="submit">Search</button>
+            </form>   
+        </div>  
     </div>
+    <div class="searchPane" id="huliResult">
+        {% if data %}
+            <b>Huli Search - {{ resultCount }} records found for: "{{searchTerm}}" ...</b>
+            {% for link in data %}
+                <div class="link">{{loop.index}}. <a target="_blank" href="{{ link.url }}">{{ link.url }}</a> ({{ link.score }})</div>
+            {% endfor %}
+        {% endif %}
+    </div>   
+    <div class="searchPane" id="leResult">leResult</div>   
 {% endblock %}
