@@ -1,7 +1,14 @@
 
 class Ranking():
+    """ Class that handles the scoring and ordering of a ParseResult list """
 
     def rank_and_sort(self, parseResult_list, search_term):
+        """
+        Params(ParseResult[list], search_term[string])
+            loops through the list scoring each item based on the URL (PDF or HTML file)
+            and adds a "score" attribute to the ParseResult object and then returns a
+            sorted list based on the score
+        """
         for link in parseResult_list:
             self.rank(link, search_term)
 
@@ -9,6 +16,7 @@ class Ranking():
         return parseResult_list
 
     def rank(self, pr, search_term):
+        """ Routes the ranking depending on what type of URL it is """
         url = pr.url.lower()
         if (url.endswith('.htm') or url.endswith('.html')):
             self.rank_html(pr, search_term)
