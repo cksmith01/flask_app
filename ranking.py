@@ -1,6 +1,13 @@
 
 class Ranking():
 
+    def rank_and_sort(self, parseResult_list, search_term):
+        for link in parseResult_list:
+            self.rank(link, search_term)
+
+        parseResult_list.sort(key=lambda x: x.score, reverse=True)
+        return parseResult_list
+
     def rank(self, pr, search_term):
         url = pr.url.lower()
         if (url.endswith('.htm') or url.endswith('.html')):

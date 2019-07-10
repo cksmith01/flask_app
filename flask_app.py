@@ -28,10 +28,8 @@ def search():
     ranking = Ranking()
     dao = Dao()
     pr_list = dao.getContent(query_str)
-    for link in pr_list:
-        ranking.rank(link, query_str)
-    pr_list.sort(key=lambda x: x.score, reverse=True)
-
+    pr_list = ranking.rank_and_sort(pr_list, query_str)
+    
     print('search results', len(pr_list))
 
     dao.close()
